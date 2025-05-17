@@ -2,32 +2,37 @@ import numpy as np
 import matplotlib.pyplot as plt
 import h5py
 
-def sigmoid(x):
-    return 1 / (1 + np.exp(-x))
+def sigmoid(Z):
+    A = 1/(1+np.exp(-Z))
+    cache = Z
+    return A, cache
 
-def relu(x):
-    return np.maximum(0, x)
+def relu(Z):
+    A = np.maximum(0,Z)
+    assert(A.shape == Z.shape)
+    cache = Z 
+    return A, cache
 
 def sigmoid_backward(dA, cache):
     Z = cache
-    s = sigmoid(Z)
+    s = s = 1/(1+np.exp(-Z))
     dZ = dA * s * (1 - s)
     assert (dZ.shape == Z.shape)
     return dZ
 
 def relu_backward(dA, cache):
-    Z =cache
+    Z = cache
     dZ = np.array(dA, copy=True)
     dZ[Z <= 0] = 0
     assert (dZ.shape == Z.shape)
     return dZ
 
 def load_data():
-    train_dataset = h5py.File('datasets/train_catvnoncat.h5', "r")
+    train_dataset = h5py.File('/home/devcontainers/Deep_Learning/datasets/train_catvnoncat_clean.h5', "r")
     train_set_x_orig = np.array(train_dataset["train_set_x"][:]) 
     train_set_y_orig = np.array(train_dataset["train_set_y"][:])
 
-    test_dataset = h5py.File('datasets/test_catvnoncat.h5', "r")
+    test_dataset = h5py.File('/home/devcontainers/Deep_Learning/datasets/test_catvnoncat_clean.h5', "r")
     test_set_x_orig = np.array(test_dataset["test_set_x"][:]) 
     test_set_y_orig = np.array(test_dataset["test_set_y"][:]) 
 
@@ -70,7 +75,7 @@ def linear_activation_forward(A_prev, W, b, activation):
 
 def L_model_forward(X, parameters):
     caches = []
-    A =X
+    A = X
     L = len(parameters) // 2 
     for l in range (1, L):
         A_prev = A 
