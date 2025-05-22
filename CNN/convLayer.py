@@ -1,3 +1,5 @@
+# We will be implementing the Convolutional Layer of a Convolutional Newural Network (CNN) from scratch including both forward and backward propagation.
+
 import numpy as np
 import matplotlib.pyplot as plt
 import h5py
