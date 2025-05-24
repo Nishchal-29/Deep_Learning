@@ -1,5 +1,5 @@
 # This script implements a simple convolutional neural network (CNN) on random (4X4X3) input images based on this architecture:
-# Convolution → ReLU → Flatten → Fully Connected → Softmax
+# Convolution -> ReLU -> Flatten -> Fully Connected -> Softmax
 
 import numpy as np
 import matplotlib.pyplot as plt
