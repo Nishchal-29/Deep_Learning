@@ -17,7 +17,7 @@ def convSingle(a_slice_prev, W, b):
     return Z
 
 def convForward(A_prev, W, b, hparameters):
-    (m, n_C_prev, n_H_prev, n_W_prev) = A_prev.shape
+    (m, n_H_prev, n_W_prev, n_C_prev) = A_prev.shape
     (f, f, n_C_prev, n_C) = W.shape
     stride = hparameters['stride']
     pad = hparameters['pad']
