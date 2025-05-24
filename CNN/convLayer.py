@@ -76,7 +76,11 @@ def convBackward(dZ, cache):
                     dW[:, :, :, c] += a_slice * dZ[i, h, w, c]
                     db[:, :, :, c] += dZ[i, h, w, c]
                     
-        dA_prev[i, :, :, :] = da_prev_pad[pad:-pad, pad:-pad, :]
+        if pad != 0:
+            dA_prev[i, :, :, :] = da_prev_pad[pad:-pad, pad:-pad, :]
+        else:
+            dA_prev[i, :, :, :] = da_prev_pad
+
         
     return dA_prev, dW, db
 
