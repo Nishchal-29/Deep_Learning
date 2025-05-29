@@ -44,21 +44,25 @@ print(f"Training samples: {X_train.shape}, Test samples: {X_test.shape}")
 # plt.show()
 
 #Hyperparameters
-epochs = 100
-alpha = 1
+epochs = 50
+alpha = 0.1
 h_pool = {"f": 2, "stride": 2}
 m_train = X_train.shape[0]
 
 #initializing weights and biases
-W_conv1 = np.random.randn(4, 4, 1, 4) * 0.01
+def he_init(shape):
+    fan_in = np.prod(shape[:-1])
+    return np.random.randn(*shape) * np.sqrt(2. / fan_in)
+
+W_conv1 = he_init((4,4,1,4))
+W_conv2 = he_init((2,2,4,8))
+W_fc1   = np.random.randn(60, 72) * np.sqrt(2./72)
+W_fc2   = np.random.randn(30, 60) * np.sqrt(2./60)
+W_fc3   = np.random.randn(10, 30) * np.sqrt(2./30)
 b_conv1 = np.zeros((1, 1, 1, 4))
-W_conv2 = np.random.randn(2, 2, 4, 8) * 0.01
 b_conv2 = np.zeros((1, 1, 1, 8))
-W_fc1 = np.random.randn(60, 72) * 0.01
 b_fc1 = np.zeros((60, 1))
-W_fc2 = np.random.randn(30, 60) * 0.01
 b_fc2 = np.zeros((30, 1))
-W_fc3 = np.random.randn(10, 30) * 0.01
 b_fc3 = np.zeros((10, 1))
 
 #Training the CNN
