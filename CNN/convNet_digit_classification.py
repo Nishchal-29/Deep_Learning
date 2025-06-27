@@ -37,11 +37,10 @@ Y = digits.target[..., np.newaxis]
 X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
 print(f"Training samples: {X_train.shape}, Test samples: {X_test.shape}")
 
-#testing an image
-# plt.imshow(X_train[1, :, :, 0], cmap='gray')
-# plt.title(f"Label: {y_train[1, 0]}")
-# plt.axis('off')
-# plt.show()
+plt.imshow(X_train[1, :, :, 0], cmap='gray')
+plt.title(f"Label: {y_train[1, 0]}")
+plt.axis('off')
+plt.show()
 
 #Hyperparameters
 epochs = 50
