@@ -4,3 +4,4 @@ cudnn-local-repo-ubuntu2204-9.3.0_1.0-1_amd64.deb
 cudnn-local-repo-ubuntu2204-9.3.0_1.0-1_amd64.deb.1
 CNN/__pycache__/
 RNN/RNN_scratch/__pycache__/
+RNN/word_analogy/__pycache__/
