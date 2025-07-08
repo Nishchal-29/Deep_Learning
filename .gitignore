@@ -1,4 +1,5 @@
 venv/
+.vscode/
 cuda-keyring_1.1-1_all.deb
 cudnn-local-repo-ubuntu2204-9.3.0_1.0-1_amd64.deb
 cudnn-local-repo-ubuntu2204-9.3.0_1.0-1_amd64.deb.1
@@ -8,3 +9,6 @@ RNN/word_analogy/__pycache__/
 RNN/Emojify/V1/__pycache__/
 RNN/Emojify/V2/__pycache__/
 RNN/Emojify/V1/glove.6B.100d.txt
+RNN/image_caption/__pycache__/
+RNN/image_caption/Flicker8k_Dataset/
+RNN/image_caption/Flickr8k.token.txt
